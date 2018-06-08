@@ -5,7 +5,9 @@
         <td><strong>Title</strong></td>
         <td><strong>Content</strong></td>
         <td><strong>Action</strong></td>
+        <td><strong>excluir</strong></td>
     </tr>
+    
 <?php foreach ($news as $news_item): ?>
         <tr>
             <td><?php echo $news_item['title']; ?></td>
@@ -15,6 +17,10 @@
                 <a href="<?php echo site_url('news/edit/'.$news_item['id']); ?>">Edit</a> | 
                 <a href="<?php echo site_url('news/delete/'.$news_item['id']); ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a>
             </td>
+            <td style="display:flex;" ><input type="checkbox" name="check" id=""><p style= "margin:0;"><?php echo $news_item['id']?></p></td>  
+        
         </tr>
 <?php endforeach; ?>
+
+
 </table>

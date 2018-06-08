@@ -40,7 +40,8 @@ class News_model extends CI_Model {
         $data = array(
             'title' => $this->input->post('title'),
             'slug' => $slug,
-            'text' => $this->input->post('text')
+            'text' => $this->input->post('text'),
+            'id' => $this->input->post('id')
         );
         
         if ($id == 0) {
@@ -55,5 +56,10 @@ class News_model extends CI_Model {
     {
         $this->db->where('id', $id);
         return $this->db->delete('news');
+    }
+    public function verificarCheck(){
+        
+        $check = $this->input->get('check');
+        echo $check;
     }
 }
