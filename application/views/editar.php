@@ -17,7 +17,7 @@
 			<p><?php echo $this->session->flashdata('success'); ?></p>
 		<?php endif; ?>
 
-		<form method="post" action="<?=base_url('atualizar')?>" enctype="multipart/form-data">
+		<form method="post" action="<?=base_url('index.php/Base/editar')?>" enctype="multipart/form-data">
 				<div>
 					<label>Nome:</label>
 					<input type="text" name="nome" value="<?=$contato['nome']?>" required/>

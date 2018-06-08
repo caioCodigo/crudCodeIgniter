@@ -18,10 +18,12 @@
 		<p><?php echo $this->session->flashdata('success'); ?></p>
 	<?php endif; ?>
 
-	<form method="post" action="<?=base_url('salvar')?>" enctype="multipart/form-data">
+	<form method="post" action="<?=base_url('index.php/Base/salvar')?>" enctype="multipart/form-data">
 		<div>
+			
 			<label>Nome:</label>
 			<input type="text" name="nome" value="<?=set_value('nome')?>" required/>
+
 		</div>
 
 		<div>
@@ -29,8 +31,10 @@
 			<input type="email" name="email" value="<?=set_value('email')?>" required/>
 		</div>
 		<div>
+				
 			<label><em>Todos os campos são obrigatórios.</em></label>
 			<input type="submit" value="Salvar"/>
+			
 		</div>
 	</form>
 	<div>
@@ -45,8 +49,9 @@
 			</thead>
 			<tbody>
 				<?php if ($contatos == FALSE): ?>
-					<tr><td colspan="2">Nenhum contato encontrado</td></tr>
-				<?php else: ?>
+					<tr><td colspan="2">Nenhum contato encontrado</td></tr>	
+					
+				<?php else: ?>	
 					<?php foreach ($contatos as $row): ?>
 						<tr>
 							<td><?= $row['nome'] ?></td>
