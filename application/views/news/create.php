@@ -16,5 +16,7 @@
             <td></td>
             <td><input type="submit" name="submit" value="Create news item" /></td>
         </tr>
-    </table>    
+    </table>
+
+
 </form>

@@ -4,7 +4,7 @@
     </head>
 
     <body>     
-     <button onClick="" >Excluir selecionados</button>
+   
     </body>
     
 </html>

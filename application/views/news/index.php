@@ -9,6 +9,7 @@
     </tr>
     
 <?php foreach ($news as $news_item): ?>
+    <form action="to_submit_form" method="post">
         <tr>
             <td><?php echo $news_item['title']; ?></td>
             <td><?php echo $news_item['text']; ?></td>
@@ -17,10 +18,24 @@
                 <a href="<?php echo site_url('news/edit/'.$news_item['id']); ?>">Edit</a> | 
                 <a href="<?php echo site_url('news/delete/'.$news_item['id']); ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a>
             </td>
-            <td style="display:flex;" ><input type="checkbox" name="check" id=""><p style= "margin:0;"><?php echo $news_item['id']?></p></td>  
-        
-        </tr>
-<?php endforeach; ?>
+
+            <td><?php
+            $input_data = array(
+                'name' => 'input',
+                'type' => 'checkbox',
+                'value' =>  $news_item['id']
+            );
+            echo form_input($input_data);
+            ?></td>
+<?php endforeach; ?> 
+
+    <?php echo form_submit('name_of_submit','Excluir marcados')?>
+    <?php echo form_close(); ?>
+
+    </form>
+
+
+
 
 
 </table>
