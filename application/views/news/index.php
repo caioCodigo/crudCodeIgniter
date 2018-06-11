@@ -1,4 +1,4 @@
-<h2><?php echo $title; ?></h2>
+<h2><?php echo base_url(); echo $title; ?></h2>
  
 <table border='1' cellpadding='4'>
     <tr>
