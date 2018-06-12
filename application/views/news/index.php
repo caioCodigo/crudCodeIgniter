@@ -8,6 +8,7 @@
         <td><strong>excluir</strong></td>
     </tr>
     
+    
 <?php foreach ($news as $news_item): ?>
     <form action="to_submit_form" method="post">
         <tr>

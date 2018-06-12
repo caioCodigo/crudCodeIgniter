@@ -59,6 +59,7 @@ $route['news/create'] = 'news/create';
 $route['news/edit/(:any)'] = 'news/edit/$1';
 $route['to_submit_form'] = 'news/to_submit_form';
 $route['logar'] = 'log';
+$route['logar/logado'] = 'log/logado';
  
 $route['news/view/(:any)'] = 'news/view/$1';
 $route['news/(:any)'] = 'news/view/$1';

@@ -1,27 +1,49 @@
-
-var formulario = document.getElementById('form');
-var usuario = document.getElementById('user');
-var senha = document.getElementById('pass');
-
-form.addEventListener('submit', function(e) {
-    // alerta o valor do campo
-    alert("nome: "+usuario.value+" e senha: "+senha.value);
-
-    // impede o envio do form
-    e.preventDefault();
-});
-
-
-
-getElementById('user').on('click', function () {
-
-    var textBoxVal = $(this).val();
-    JSON({
-      type: 'POST',
-      url: '<?php echo base_url();?>log/index   ', // link to CI function
-      data: {
-          val: $(this).val()
-      }
-    });
   
-  });
+       var httRequest;
+       $('#btn_form').click(function() { 
+           var usuario = $('#user').val();
+           var senha = $('#pass').val();
+           var baseurl = $('#base_url').val();
+           console.log(baseurl);
+
+           makeRequest('logar',usuario,senha).then(function(valor){
+               console.log(valor);
+           }); 
+       });
+       
+           function makeRequest(url, usuario, senha) {
+
+               return new Promisse(function(resolve,reject){
+
+                   httpRequest = new XMLHttpRequest();
+                 
+                   httpRequest.onreadystatechange = alertContents;
+                   httpRequest.open('POST', url);
+                   httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                   httpRequest.onreadystatechange = function(){
+                       if(httpRequest.readyState == XMLHttpRequest.DONE ){
+                           resolve(JSON.parse(httpRequest.responseText));
+                       }
+                   }
+                   httpRequest.send('name='+ encodeURIComponent(usuario)+'&senha='+ encodeURIComponent(senha));
+               });                
+           }            
+
+           function alertContents() {
+                if (httpRequest.readyState === 4) {
+
+                   if (httpRequest.status === 200) {
+
+                    var response = httpRequest.responseText;
+               
+                    console.log(httpRequest);
+                    alert(response.computedString);    
+                                                 
+                   } else {
+                       alert('There was a problem with the request.');
+                   }
+                }
+                else{
+                       alert(httpRequest.readyState);
+                }                   
+            }
